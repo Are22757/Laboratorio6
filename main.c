@@ -112,19 +112,29 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  	  if (buffer[0] == 'U') {
-	          HAL_UART_Transmit(&huart2, U, sizeof(U), 1000);
-	      } else if (buffer[0] == 'D') {
-	          HAL_UART_Transmit(&huart2, D, sizeof(D), 1000);
-	      } else if (buffer[0] == 'L') {
-	          HAL_UART_Transmit(&huart2, L, sizeof(L), 1000);
-	      } else if (buffer[0] == 'R') {
-	          HAL_UART_Transmit(&huart2, R, sizeof(R), 1000);
-	      } else if (buffer[0] == 'A') {
-	          HAL_UART_Transmit(&huart2, A, sizeof(A), 1000);
-	      } else if (buffer[0] == 'B') {
-	          HAL_UART_Transmit(&huart2, B, sizeof(B), 1000);
-	      }
+	  	switch (buffer[0]) {
+    case 'U':
+        HAL_UART_Transmit(&huart2, U, sizeof(U), 1000);
+        break;
+    case 'D':
+        HAL_UART_Transmit(&huart2, D, sizeof(D), 1000);
+        break;
+    case 'L':
+        HAL_UART_Transmit(&huart2, L, sizeof(L), 1000);
+        break;
+    case 'R':
+        HAL_UART_Transmit(&huart2, R, sizeof(R), 1000);
+        break;
+    case 'A':
+        HAL_UART_Transmit(&huart2, A, sizeof(A), 1000);
+        break;
+    case 'B':
+        HAL_UART_Transmit(&huart2, B, sizeof(B), 1000);
+        break;
+    default:
+        // Si no coincide con ninguna opción, puedes manejarlo aquí si es necesario
+        break;
+}
 
 	      // Vuelve a recibir el siguiente byte
 	      buffer[0] = '1';
